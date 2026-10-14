@@ -1,6 +1,14 @@
-ERD_Critique_v0.2_Review.docx
-ERD_Critique_v0.2_Review.pdf
-credentials
-QnA_Prep_Data_Platform_Assessment.docx
-./flawed_erd_data
-./optimized_erd_data
+# Generated ERD data
+/flawed_erd_data/
+/optimized_erd_data/
+
+# Credentials and secrets
+/credentials/
+.env
+.env.*
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
