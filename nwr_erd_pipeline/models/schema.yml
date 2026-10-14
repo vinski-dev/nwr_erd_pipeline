@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_players
+    description: "Dimension table for casino patrons, merging loyalty and CMS identities."
+    columns:
+      - name: player_sk
+        description: "Surrogate key generated via FARM_FINGERPRINT."
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_ratings
+    description: "Transactional fact table capturing individual patron gaming sessions."
+    columns:
+      - name: cms_rating_id
+        description: "Primary key for the rating transaction."
+        tests:
+          - not_null
+          - unique
+      - name: rating_ts
+        description: "Timestamp of the rating session."
+        tests:
+          - not_null
+      - name: player_sk
+        description: "Foreign key linking to dim_player."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_players')
+              field: player_sk
+      - name: theo_amount
+        description: "Theoretical win calculated locally as coin_in * house_edge."

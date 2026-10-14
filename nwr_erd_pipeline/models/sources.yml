@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: casino_bronze
+    schema: casino_platform # The dataset where your Python script loaded the data
+    tables:
+      - name: bronze_loyalty_members
+      - name: bronze_loyalty_cms_xref
+      - name: bronze_cms_ratings
+      - name: bronze_promo_redemptions

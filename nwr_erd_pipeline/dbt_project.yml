@@ -1,0 +1,25 @@
+name: "nwr_erd_pipeline"
+version: "1.0.0"
+config-version: 2
+flags:
+  silence_deprecations:
+    - MissingArgumentsPropertyInGenericTestDeprecation
+
+# This tells dbt to look for the "casino_platform" block in your profiles.yml
+profile: "casino_platform"
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+models:
+  nwr_erd_pipeline:
+    silver:
+      +materialized: view
+    gold:
+      +materialized: table
+      mart_exec_daily:
+        +materialized: table
