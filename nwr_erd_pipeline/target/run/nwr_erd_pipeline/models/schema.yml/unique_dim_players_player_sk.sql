@@ -14,7 +14,7 @@
 with dbt_test__target as (
 
   select player_sk as unique_field
-  from `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+  from `nwr-data-platform`.`dbt_erd_nwr_silver`.`dim_players`
   where player_sk is not null
 
 )

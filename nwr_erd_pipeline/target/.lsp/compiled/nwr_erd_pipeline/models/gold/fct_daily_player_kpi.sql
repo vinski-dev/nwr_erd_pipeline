@@ -3,10 +3,10 @@
 WITH daily_aggregates AS (
     SELECT
         EXTRACT(DATE FROM rating_ts) AS date_day,
-        player_sk,
+        sk_player_id,
         SUM(coin_in) AS daily_coin_in,
         SUM(theo_amount) AS daily_theo
-    FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+    FROM `nwr-data-platform`.`dbt_erd_nwr_silver`.`fct_ratings`
     WHERE player_sk IS NOT NULL
     GROUP BY 1, 2
 ),

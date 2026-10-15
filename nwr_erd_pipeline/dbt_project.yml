@@ -16,10 +16,20 @@ macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 models:
-  nwr_erd_pipeline:
+  nwr_erd_pipeline: # Replace with the actual project name from the top of your file
+
+    # Your existing Silver configuration
     silver:
-      +materialized: view
-    gold:
+      +schema: silver
       +materialized: table
-      mart_exec_daily:
+
+      staging:
+        +materialized: view
+
+      intermediate:
         +materialized: table
+
+    # Add this new block for the Gold layer
+    gold:
+      +schema: gold
+      +materialized: table
