@@ -1,0 +1,60 @@
+name: dbt CI/CD
+
+on:
+  push:
+    branches:
+      - "**" # Triggers on all branches
+
+jobs:
+  run-dbt-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-bigquery
+
+      - name: Setup dbt Profile and Credentials
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          # 1. Determine target dataset based on branch
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            TARGET_DATASET="dbt_erd_nwr_prod"
+          else
+            TARGET_DATASET="dbt_erd_nwr_staging"
+          fi
+          echo "Building into dataset: $TARGET_DATASET"
+
+          # 2. Write the secret to a temporary file
+          mkdir -p credentials
+          echo "$GCP_SA_KEY" > credentials/gcp_key.json
+
+          # 3. Dynamically generate profiles.yml
+          mkdir -p ~/.dbt
+          cat <<EOF > ~/.dbt/profiles.yml
+          nwr_erd_pipeline:
+            target: ci
+            outputs:
+              ci:
+                type: bigquery
+                method: service-account
+                project: nwr-data-platform
+                dataset: $TARGET_DATASET
+                threads: 4
+                keyfile: credentials/gcp_key.json
+          EOF
+
+      - name: Run dbt Build
+        run: |
+          dbt deps
+          dbt build --target ci

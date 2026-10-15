@@ -1,0 +1,18 @@
+==================== 2026-10-15T09:01:13.857800Z | 00000000-0000-0000-0000-000000000000 ====================
+==================== 2026-10-15T09:01:13.867155Z | beef6b00-dafd-42cd-a911-d6db6949b103 ====================
+09:01:13.868479 [info ]: Starting dbt LSP server
+09:01:13.869142 [info ]: Connecting to LSP client on port 8000
+09:01:13.882301 [info ]: Successfully connected to LSP client
+09:01:13.882713 [info ]: Creating LSP service...
+09:01:13.939909 [info ]: Creating LSP server...
+09:01:13.939934 [info ]: Starting LSP server...
+09:01:14.733801 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-10-15T09:01:15.084271Z | e508feda-e242-4517-b62d-c8b6d0576c88 ====================
+09:01:15.087376 [info ]: Started loading project
+09:01:15.107965 [info ]: Loading ~/.dbt/profiles.yml
+09:01:15.198001 [info ]:    Started resolving packages from packages.yml
+09:01:15.625339 [info ]:   Finished [  0.43s] resolving packages from packages.yml (1 items)
+09:01:15.665371 [debug]:    Started loading packages
+09:01:15.732706 [debug]:     Loaded [  0.07s] packages
+09:01:15.742440 [info ]: Finished loading project [  0.66s]
+09:01:15.753057 [info ]: Started parsing

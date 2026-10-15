@@ -5576,3 +5576,4 @@ parsing.
 [0m23:48:56.601037 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001816B5FB450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001816B517B50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001816C8B1A90>]}
 [0m23:48:56.604442 [debug] [MainThread]: Flushing usage events
 [0m23:48:58.057916 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-10-15T05:51:16.420818Z | 01a13e1d-65ab-7993-89f6-8e516b70cd92 ====================
