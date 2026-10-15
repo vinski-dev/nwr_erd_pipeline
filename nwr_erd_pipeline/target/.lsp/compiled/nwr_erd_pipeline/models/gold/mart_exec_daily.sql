@@ -6,7 +6,8 @@ daily_summary AS (
     SELECT
         date_day AS run_date,
         SUM(daily_theo) AS kpi_theo_today,
-        COUNT(DISTINCT IF(is_active_flag, player_sk, NULL)) AS kpi_active_players
+        COUNT(DISTINCT IF(is_active_flag, player_sk, NULL))
+            AS kpi_active_players
     FROM daily_kpi
     GROUP BY 1
 )

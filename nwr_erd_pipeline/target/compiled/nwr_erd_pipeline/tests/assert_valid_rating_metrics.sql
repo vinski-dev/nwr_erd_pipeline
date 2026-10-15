@@ -2,14 +2,9 @@
 -- If it returns any rows, the dbt test will fail and flag the bad data.
 
 SELECT
-    cms_rating_id,
-    rating_ts,
+    sk_rating_id, -- Used to be cms_rating_id
+    sk_player_id,
     coin_in,
-    house_edge,
     theo_amount
-FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
-WHERE
-    coin_in < 0
-    OR house_edge < 0
-    OR house_edge > 1
-    OR theo_amount < 0
+FROM `nwr-data-platform`.`dbt_erd_nwr_silver`.`fct_ratings`
+WHERE coin_in < 0 OR theo_amount < 0

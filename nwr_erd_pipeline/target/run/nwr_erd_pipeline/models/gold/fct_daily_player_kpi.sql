@@ -1,24 +1,16 @@
 
-  
-    
 
-    create or replace table `nwr-data-platform`.`dbt_erd_nwr`.`fct_daily_player_kpi`
-      
-    partition by date_day
-    cluster by player_sk
-
-    
-    OPTIONS()
-    as (
-      
+  create or replace view `nwr-data-platform`.`dbt_erd_nwr`.`fct_daily_player_kpi`
+  OPTIONS()
+  as 
 
 WITH daily_aggregates AS (
     SELECT
         EXTRACT(DATE FROM rating_ts) AS date_day,
-        player_sk,
+        sk_player_id,
         SUM(coin_in) AS daily_coin_in,
         SUM(theo_amount) AS daily_theo
-    FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+    FROM `nwr-data-platform`.`dbt_erd_nwr_silver`.`fct_ratings`
     WHERE player_sk IS NOT NULL
     GROUP BY 1, 2
 ),
@@ -46,6 +38,5 @@ SELECT
     rolling_30d_theo,
     -- Player is considered "Active" if they generated theo in the last 30 days
     IF(rolling_30d_theo > 0, TRUE, FALSE) AS is_active_flag
-FROM rolling_metrics
-    );
-  
+FROM rolling_metrics;
+

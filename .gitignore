@@ -1,6 +1,7 @@
-# Generated ERD data
-/flawed_erd_data/
-/optimized_erd_data/
+# Ignore local synthetic data generation
+*.csv
+*.docx
+*.pdf
 
 # Credentials and secrets
 /credentials/
