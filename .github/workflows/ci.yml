@@ -56,5 +56,7 @@ jobs:
 
       - name: Run dbt Build
         run: |
+          # Navigate into the subfolder where dbt_project.yml lives
+          cd nwr_erd_pipeline
           dbt deps
           dbt build --target ci

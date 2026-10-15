@@ -16,3 +16,150 @@
 09:01:15.732706 [debug]:     Loaded [  0.07s] packages
 09:01:15.742440 [info ]: Finished loading project [  0.66s]
 09:01:15.753057 [info ]: Started parsing
+09:01:16.543465 [debug]: Finished parsing models/schema.yml [  0.02s]
+09:01:16.557861 [debug]: Finished parsing models/sources.yml [  0.01s]
+09:01:16.652076 [debug]: Finished parsing models/gold/fct_daily_player_kpi.sql [  0.07s]
+09:01:16.668859 [debug]: Finished parsing models/gold/mart_exec_daily.sql [  0.02s]
+09:01:16.684345 [debug]: Finished parsing models/silver/dim_players.sql [  0.02s]
+09:01:16.687386 [debug]: Finished parsing models/silver/fct_ratings.sql [  0.00s]
+09:01:16.721419 [debug]: Finished parsing tests/assert_valid_rating_metrics.sql [  0.01s]
+09:01:16.910746 [info ]: Finished parsing [  1.16s]
+09:01:16.918145 [info ]: Cached model count updated: 4 models (estimate)
+09:01:16.918174 [info ]: Cached model count updated: 4 models (accurate)
+09:01:16.921231 [info ]: Started scheduling
+09:01:16.927502 [info ]: Finished scheduling [  0.01s]
+09:01:16.927563 [debug]: Compilation - 1 nodes selected: {"model.nwr_erd_pipeline.fct_ratings"}
+09:01:16.928735 [info ]: Started scheduling
+09:01:16.928828 [info ]: Finished scheduling [  0.00s]
+09:01:16.934167 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "nwr-data-platform", schema: "casino_platform", table: "bronze_loyalty_members" }) and interval: None
+09:01:16.934648 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "nwr-data-platform", schema: "casino_platform", table: "bronze_cms_ratings" }) and interval: None
+09:01:16.934658 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "nwr-data-platform", schema: "casino_platform", table: "bronze_loyalty_cms_xref" }) and interval: None
+09:01:16.952577 [debug]:    Started downloading relations (1 items)
+09:01:16.960483 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+09:01:17.619355 [debug]: Ignoring unsupported LSP notification
+09:01:20.866228 [debug]:   Finished [  3.91s] downloading relations (1 items)
+09:01:21.122390 [info ]: Started building task graph
+09:01:21.171984 [info ]: Finished building task graph [  0.05s]
+09:01:21.276477 [info ]: Started rendering (1 nodes)
+09:01:21.278178 [info ]: Started model dbt_erd_nwr.fct_ratings
+09:01:21.278996 [debug]: Started rendering model dbt_erd_nwr.fct_ratings
+09:01:21.344113 [debug]: Compiled SQL for node model.nwr_erd_pipeline.fct_ratings at target\.lsp\compiled\nwr_erd_pipeline\models\silver\fct_ratings.sql
+09:01:21.358150 [debug]: Finished rendering [  0.08s] model dbt_erd_nwr.fct_ratings [success]
+09:01:21.358210 [info ]: Finished rendering [  0.08s] (1 nodes, 0 skipped, 0 errors)
+09:01:21.359724 [info ]: Started analyzing (1 nodes)
+09:01:21.359778 [debug]: Started analyzing model dbt_erd_nwr.fct_ratings
+09:01:21.444859 [debug]: Finished analyzing [  0.09s] model dbt_erd_nwr.fct_ratings [success]
+09:01:21.444921 [info ]: Finished analyzing [  0.09s] (1 nodes, 0 skipped, 0 errors)
+09:01:21.444953 [info ]:  Succeeded model dbt_erd_nwr.fct_ratings (incremental) [1 of 1 in 0.16s]
+09:01:21.469692 [info ]: Started scheduling
+09:01:21.469787 [info ]: Finished scheduling [  0.00s]
+09:01:21.471829 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [6.4s]
+Processed: 1 model
+Summary: 1 total | 1 success
+09:01:21.474485 [info ]: Cached model count updated: 4 models (accurate)
+==================== 2026-10-15T09:01:23.177983Z | 220df217-b814-49a8-9d07-a10bbe11b61f ====================
+09:01:23.178168 [info ]: Started loading project
+09:01:23.180541 [info ]: Loading ~/.dbt/profiles.yml
+09:01:23.201106 [info ]: Finished loading project [  0.02s]
+09:01:23.305401 [info ]: Cached model count updated: 4 models (estimate)
+09:01:23.305483 [info ]: Cached model count updated: 4 models (accurate)
+09:01:23.305563 [info ]: Started scheduling
+09:01:23.306898 [info ]: Finished scheduling [  0.00s]
+09:01:23.306965 [debug]: Compilation - 3 nodes selected: {"model.nwr_erd_pipeline.fct_daily_player_kpi", "model.nwr_erd_pipeline.fct_ratings", "model.nwr_erd_pipeline.mart_exec_daily"}
+09:01:23.312296 [debug]:    Started downloading relations (1 items)
+09:01:24.826837 [debug]: Ignoring unsupported LSP notification
+09:01:25.753622 [debug]:   Finished [  2.44s] downloading relations (1 items)
+09:01:25.829333 [info ]: Started building task graph
+09:01:25.829410 [info ]: Finished building task graph [  0.00s]
+09:01:25.833313 [info ]: Started rendering (3 nodes)
+09:01:25.833348 [info ]: Started model dbt_erd_nwr.mart_exec_daily
+09:01:25.833359 [debug]: Started rendering model dbt_erd_nwr.mart_exec_daily
+09:01:25.833384 [info ]: Started model dbt_erd_nwr.fct_daily_player_kpi
+09:01:25.833391 [debug]: Started rendering model dbt_erd_nwr.fct_daily_player_kpi
+09:01:25.833401 [info ]: Started model dbt_erd_nwr.fct_ratings
+09:01:25.833408 [debug]: Started rendering model dbt_erd_nwr.fct_ratings
+09:01:25.836093 [debug]: Compiled SQL for node model.nwr_erd_pipeline.fct_ratings at target\.lsp\compiled\nwr_erd_pipeline\models\silver\fct_ratings.sql
+09:01:25.836416 [debug]: Finished rendering [  0.00s] model dbt_erd_nwr.fct_ratings [success]
+09:01:25.836455 [info ]: Started analyzing (3 nodes)
+09:01:25.836465 [debug]: Started analyzing model dbt_erd_nwr.fct_ratings
+09:01:25.837569 [debug]: Finished analyzing [  0.00s] model dbt_erd_nwr.fct_ratings [success]
+09:01:25.837605 [info ]:  Succeeded model dbt_erd_nwr.fct_ratings (incremental) [3 of 3 in 0.00s]
+09:01:25.840000 [debug]: Compiled SQL for node model.nwr_erd_pipeline.mart_exec_daily at target\.lsp\compiled\nwr_erd_pipeline\models\gold\mart_exec_daily.sql
+09:01:25.840000 [debug]: Compiled SQL for node model.nwr_erd_pipeline.fct_daily_player_kpi at target\.lsp\compiled\nwr_erd_pipeline\models\gold\fct_daily_player_kpi.sql
+09:01:25.840290 [debug]: Finished rendering [  0.01s] model dbt_erd_nwr.fct_daily_player_kpi [success]
+09:01:25.840349 [debug]: Started analyzing model dbt_erd_nwr.fct_daily_player_kpi
+09:01:25.841260 [debug]: Finished rendering [  0.01s] model dbt_erd_nwr.mart_exec_daily [success]
+09:01:25.841317 [info ]: Finished rendering [  0.01s] (3 nodes, 0 skipped, 0 errors)
+09:01:25.841359 [debug]: Started analyzing model dbt_erd_nwr.mart_exec_daily
+09:01:25.857578 [debug]: Finished analyzing [  0.02s] model dbt_erd_nwr.mart_exec_daily [success]
+09:01:25.857636 [info ]:  Succeeded model dbt_erd_nwr.mart_exec_daily (table) [1 of 3 in 0.02s]
+09:01:25.860973 [debug]: Finished analyzing [  0.02s] model dbt_erd_nwr.fct_daily_player_kpi [success]
+09:01:25.861056 [info ]: Finished analyzing [  0.02s] (3 nodes, 0 skipped, 0 errors)
+09:01:25.861078 [info ]:  Succeeded model dbt_erd_nwr.fct_daily_player_kpi (table) [2 of 3 in 0.03s]
+09:01:25.868533 [info ]: Started scheduling
+09:01:25.868628 [info ]: Finished scheduling [  0.00s]
+09:01:25.868824 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [2.7s]
+Processed: 3 models
+Summary: 3 total | 3 success
+09:01:25.869110 [info ]: Cached model count updated: 4 models (accurate)
+==================== 2026-10-15T09:01:27.566422Z | 41a7308a-f1c0-4a61-b9bd-3165d65c6f75 ====================
+09:01:27.566537 [info ]: Started loading project
+09:01:27.567461 [info ]: Loading ~/.dbt/profiles.yml
+09:01:27.576015 [info ]: Finished loading project [  0.01s]
+09:01:27.612727 [info ]: Cached model count updated: 4 models (estimate)
+09:01:27.612760 [info ]: Cached model count updated: 4 models (accurate)
+09:01:27.612805 [info ]: Started scheduling
+09:01:27.612914 [info ]: Finished scheduling [  0.00s]
+09:01:27.612940 [debug]: Compilation - 4 nodes selected: {"model.nwr_erd_pipeline.dim_players", "model.nwr_erd_pipeline.fct_daily_player_kpi", "model.nwr_erd_pipeline.fct_ratings", "model.nwr_erd_pipeline.mart_exec_daily"}
+09:01:27.614803 [debug]:    Started downloading relations (1 items)
+09:01:30.025442 [debug]:   Finished [  2.41s] downloading relations (1 items)
+09:01:30.119208 [info ]: Started building task graph
+09:01:30.119333 [info ]: Finished building task graph [  0.00s]
+09:01:30.129581 [info ]: Started rendering (4 nodes)
+09:01:30.129678 [info ]: Started model dbt_erd_nwr.mart_exec_daily
+09:01:30.129708 [debug]: Started rendering model dbt_erd_nwr.mart_exec_daily
+09:01:30.129794 [info ]: Started model dbt_erd_nwr.fct_daily_player_kpi
+09:01:30.129812 [debug]: Started rendering model dbt_erd_nwr.fct_daily_player_kpi
+09:01:30.129840 [info ]: Started model dbt_erd_nwr.fct_ratings
+09:01:30.129852 [debug]: Started rendering model dbt_erd_nwr.fct_ratings
+09:01:30.129873 [info ]: Started model dbt_erd_nwr.dim_players
+09:01:30.129883 [debug]: Started rendering model dbt_erd_nwr.dim_players
+09:01:30.131381 [debug]: Compiled SQL for node model.nwr_erd_pipeline.fct_ratings at target\.lsp\compiled\nwr_erd_pipeline\models\silver\fct_ratings.sql
+09:01:30.131699 [debug]: Compiled SQL for node model.nwr_erd_pipeline.mart_exec_daily at target\.lsp\compiled\nwr_erd_pipeline\models\gold\mart_exec_daily.sql
+09:01:30.133247 [debug]: Compiled SQL for node model.nwr_erd_pipeline.fct_daily_player_kpi at target\.lsp\compiled\nwr_erd_pipeline\models\gold\fct_daily_player_kpi.sql
+09:01:30.133724 [debug]: Finished rendering [  0.00s] model dbt_erd_nwr.fct_ratings [success]
+09:01:30.133749 [info ]: Started analyzing (4 nodes)
+09:01:30.133773 [debug]: Started analyzing model dbt_erd_nwr.fct_ratings
+09:01:30.133811 [debug]: Finished rendering [  0.00s] model dbt_erd_nwr.mart_exec_daily [success]
+09:01:30.133836 [debug]: Started analyzing model dbt_erd_nwr.mart_exec_daily
+09:01:30.133859 [debug]: Finished rendering [  0.00s] model dbt_erd_nwr.fct_daily_player_kpi [success]
+09:01:30.133876 [debug]: Started analyzing model dbt_erd_nwr.fct_daily_player_kpi
+09:01:30.134465 [debug]: Finished analyzing [  0.00s] model dbt_erd_nwr.mart_exec_daily [success]
+09:01:30.134512 [info ]:  Succeeded model dbt_erd_nwr.mart_exec_daily (table) [1 of 4 in 0.00s]
+09:01:30.134567 [debug]: Finished analyzing [  0.00s] model dbt_erd_nwr.fct_daily_player_kpi [success]
+09:01:30.134580 [info ]:  Succeeded model dbt_erd_nwr.fct_daily_player_kpi (table) [2 of 4 in 0.00s]
+09:01:30.135965 [debug]: Finished analyzing [  0.00s] model dbt_erd_nwr.fct_ratings [success]
+09:01:30.136020 [info ]:  Succeeded model dbt_erd_nwr.fct_ratings (incremental) [3 of 4 in 0.01s]
+09:01:30.139959 [debug]: Compiled SQL for node model.nwr_erd_pipeline.dim_players at target\.lsp\compiled\nwr_erd_pipeline\models\silver\dim_players.sql
+09:01:30.140270 [debug]: Finished rendering [  0.01s] model dbt_erd_nwr.dim_players [success]
+09:01:30.140313 [info ]: Finished rendering [  0.01s] (4 nodes, 0 skipped, 0 errors)
+09:01:30.140354 [debug]: Started analyzing model dbt_erd_nwr.dim_players
+09:01:30.144309 [debug]: Finished analyzing [  0.00s] model dbt_erd_nwr.dim_players [success]
+09:01:30.144365 [info ]: Finished analyzing [  0.01s] (4 nodes, 0 skipped, 0 errors)
+09:01:30.144389 [info ]:  Succeeded model dbt_erd_nwr.dim_players (table) [4 of 4 in 0.01s]
+09:01:30.154319 [info ]: Started scheduling
+09:01:30.154424 [info ]: Finished scheduling [  0.00s]
+09:01:30.154541 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [2.6s]
+Processed: 4 models
+Summary: 4 total | 4 success
+09:01:30.155051 [info ]: Cached model count updated: 4 models (accurate)
+10:30:05.977262 [debug]: Ignoring unsupported LSP notification
+10:30:06.007061 [debug]: Ignoring unsupported LSP notification
+10:30:33.529181 [debug]: Ignoring unsupported LSP notification
+10:30:33.548892 [debug]: Ignoring unsupported LSP notification
