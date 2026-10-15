@@ -8193,3 +8193,17 @@ FROM daily_summary
 [0m19:39:28.174270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D52FC5B890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5290DA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D530E6A410>]}
 [0m19:39:28.178337 [debug] [MainThread]: Flushing usage events
 [0m19:39:30.082158 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:45:14.201006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658C80150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658CEC390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658CEC290>]}
+
+
+============================== 19:45:14.209047 | fb1dab51-27cd-4fb9-97c7-faa5558187cf ==============================
+[0m19:45:14.209047 [info ] [MainThread]: Running with dbt=1.11.12
+[0m19:45:14.209603 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Alexis Allen Manuel\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt build --target ci', 'use_experimental_parser': 'False', 'log_path': 'D:\\dev\\nwr_erd_analytics\\nwr_erd_pipeline\\logs'}
+[0m19:45:14.211673 [error] [MainThread]: Encountered an error:
+Runtime Error
+  The profile 'nwr_erd_pipeline' does not have a target named 'ci'. The valid target names for this profile are:
+   - dev
+[0m19:45:14.216615 [debug] [MainThread]: Command `dbt build` failed at 19:45:14.216615 after 0.18 seconds
+[0m19:45:14.217630 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658D5A650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658D59A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022658D5AB10>]}
+[0m19:45:14.218626 [debug] [MainThread]: Flushing usage events
+[0m19:45:15.593428 [debug] [MainThread]: An error was encountered while trying to flush usage events

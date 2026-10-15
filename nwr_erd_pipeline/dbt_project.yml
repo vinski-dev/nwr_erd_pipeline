@@ -5,7 +5,7 @@ flags:
   silence_deprecations:
     - MissingArgumentsPropertyInGenericTestDeprecation
 
-# This tells dbt to look for the "casino_platform" block in your profiles.yml
+# This tells dbt to look for the "nwr_erd_pipeline" block in your profiles.yml
 profile: "nwr_erd_pipeline"
 
 model-paths: ["models"]
