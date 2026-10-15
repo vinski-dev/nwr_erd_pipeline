@@ -40,13 +40,18 @@ jobs:
 
           cat <<EOF > ~/.dbt/profiles.yml
           nwr_erd_pipeline:
-              target: ci
-              outputs:
+            target: ci
+            outputs:
               ci:
-                  type: bigquery
-                  method: service-account
-                  project: nwr-data-platform
-                  dataset: $TARGET_DATASET
-                  threads: 4
-                  keyfile: /home/runner/.dbt/gcp_key.json
+                type: bigquery
+                method: service-account
+                project: nwr-data-platform
+                dataset: $TARGET_DATASET
+                threads: 4
+                keyfile: /home/runner/.dbt/gcp_key.json
           EOF
+      - name: Run dbt Build
+        run: |
+          cd nwr_erd_pipeline
+          dbt deps --profiles-dir ~/.dbt
+          dbt build --target ci --profiles-dir ~/.dbt
