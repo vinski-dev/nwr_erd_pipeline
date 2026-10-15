@@ -42,7 +42,7 @@ jobs:
           # 3. Dynamically generate profiles.yml
           mkdir -p ~/.dbt
           cat <<EOF > ~/.dbt/profiles.yml
-          casino_platform:
+          nwr_erd_pipeline:
             target: ci
             outputs:
               ci:
@@ -58,5 +58,5 @@ jobs:
         run: |
           # Navigate into the subfolder where dbt_project.yml lives
           cd nwr_erd_pipeline
-          dbt deps
-          dbt build --target ci
+          dbt deps --profiles-dir ~/.dbt
+          dbt build --target ci --profiles-dir ~/.dbt
