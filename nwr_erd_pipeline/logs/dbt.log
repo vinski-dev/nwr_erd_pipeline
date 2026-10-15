@@ -7555,3 +7555,641 @@ FROM daily_summary
 [0m19:34:21.247849 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2D1CDF1D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2CB2BA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2CB23D690>]}
 [0m19:34:21.248799 [debug] [MainThread]: Flushing usage events
 [0m19:34:22.966352 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:38:48.988037 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D530E502D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D52FDC0810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D530E50650>]}
+
+
+============================== 19:38:48.992056 | 0fdbbb23-4037-4d47-9093-824403e48962 ==============================
+[0m19:38:48.992056 [info ] [MainThread]: Running with dbt=1.11.12
+[0m19:38:48.992056 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Alexis Allen Manuel\\.dbt', 'invocation_command': 'dbt build', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'D:\\dev\\nwr_erd_analytics\\nwr_erd_pipeline\\logs'}
+[0m19:38:53.152349 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D544BEB590>]}
+[0m19:38:53.245950 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D52C3CE090>]}
+[0m19:38:53.247606 [info ] [MainThread]: Registered adapter: bigquery=1.12.0
+[0m19:38:54.427297 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m19:38:54.833970 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:38:54.833970 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m19:38:54.833970 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:38:54.925568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D54502C890>]}
+[0m19:38:55.098027 [debug] [MainThread]: Wrote artifact WritableManifest to D:\dev\nwr_erd_analytics\nwr_erd_pipeline\target\manifest.json
+[0m19:38:55.102017 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\dev\nwr_erd_analytics\nwr_erd_pipeline\target\semantic_manifest.json
+[0m19:38:55.158121 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D545472B10>]}
+[0m19:38:55.159121 [info ] [MainThread]: Found 4 models, 8 data tests, 4 sources, 677 macros
+[0m19:38:55.163139 [info ] [MainThread]: 
+[0m19:38:55.165121 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:38:55.168058 [info ] [MainThread]: 
+[0m19:38:55.171294 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m19:38:55.180732 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_nwr-data-platform'
+[0m19:38:55.185558 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:38:57.018593 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_nwr-data-platform_dbt_erd_nwr'
+[0m19:38:57.019633 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:38:58.937142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D544C48A90>]}
+[0m19:38:58.938143 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:38:58.988529 [debug] [Thread-3 (]: Began running node model.nwr_erd_pipeline.dim_players
+[0m19:38:58.988529 [debug] [Thread-4 (]: Began running node model.nwr_erd_pipeline.fct_ratings
+[0m19:38:58.989569 [info ] [Thread-3 (]: 1 of 12 START sql table model dbt_erd_nwr.dim_players .......................... [RUN]
+[0m19:38:58.991527 [info ] [Thread-4 (]: 2 of 12 START sql incremental model dbt_erd_nwr.fct_ratings .................... [RUN]
+[0m19:38:58.992524 [debug] [Thread-3 (]: Acquiring new bigquery connection 'model.nwr_erd_pipeline.dim_players'
+[0m19:38:58.993713 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.nwr_erd_pipeline.fct_ratings'
+[0m19:38:58.994709 [debug] [Thread-3 (]: Began compiling node model.nwr_erd_pipeline.dim_players
+[0m19:38:58.995709 [debug] [Thread-4 (]: Began compiling node model.nwr_erd_pipeline.fct_ratings
+[0m19:38:59.019449 [debug] [Thread-3 (]: Writing injected SQL for node "model.nwr_erd_pipeline.dim_players"
+[0m19:38:59.031932 [debug] [Thread-4 (]: Writing injected SQL for node "model.nwr_erd_pipeline.fct_ratings"
+[0m19:38:59.035064 [debug] [Thread-3 (]: Began executing node model.nwr_erd_pipeline.dim_players
+[0m19:38:59.036078 [debug] [Thread-4 (]: Began executing node model.nwr_erd_pipeline.fct_ratings
+[0m19:38:59.054766 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:38:59.276424 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:39:01.766846 [debug] [Thread-4 (]: Writing runtime sql for node "model.nwr_erd_pipeline.fct_ratings"
+[0m19:39:01.769800 [debug] [Thread-4 (]: On model.nwr_erd_pipeline.fct_ratings: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "model.nwr_erd_pipeline.fct_ratings"} */
+-- back compat for old kwarg name
+  
+  
+        
+            
+            
+            
+            
+        
+    
+
+    
+
+    merge into `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings` as DBT_INTERNAL_DEST
+        using (
+
+WITH ratings AS (
+    SELECT * FROM `nwr-data-platform`.`casino_platform`.`bronze_cms_ratings`
+
+    -- Incremental logic: only process new data on subsequent runs
+    
+        WHERE rating_ts > (SELECT MAX(rating_ts) FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`)
+    
+),
+
+xref AS (
+    SELECT member_no, cms_player_id
+    FROM `nwr-data-platform`.`casino_platform`.`bronze_loyalty_cms_xref`
+)
+
+SELECT
+    r.cms_rating_id,
+    -- Generate an MD5 string surrogate key using the dbt_utils macro
+    to_hex(md5(cast(coalesce(cast(x.member_no as string), '_dbt_utils_surrogate_key_null_') as string))) AS player_sk,
+    r.game_type,
+    r.rating_ts,
+    r.coin_in,
+    r.house_edge,
+
+    -- CENTRALIZED LOGIC: Compute Theo here, never in Gold
+    ROUND(r.coin_in * r.house_edge, 2) AS theo_amount
+FROM ratings r
+LEFT JOIN xref x
+    ON r.cms_player_id = x.cms_player_id
+        ) as DBT_INTERNAL_SOURCE
+        on ((DBT_INTERNAL_SOURCE.cms_rating_id = DBT_INTERNAL_DEST.cms_rating_id))
+
+    
+    when matched then update set
+        `cms_rating_id` = DBT_INTERNAL_SOURCE.`cms_rating_id`,`player_sk` = DBT_INTERNAL_SOURCE.`player_sk`,`game_type` = DBT_INTERNAL_SOURCE.`game_type`,`rating_ts` = DBT_INTERNAL_SOURCE.`rating_ts`,`coin_in` = DBT_INTERNAL_SOURCE.`coin_in`,`house_edge` = DBT_INTERNAL_SOURCE.`house_edge`,`theo_amount` = DBT_INTERNAL_SOURCE.`theo_amount`
+    
+
+    when not matched then insert
+        (`cms_rating_id`, `player_sk`, `game_type`, `rating_ts`, `coin_in`, `house_edge`, `theo_amount`)
+    values
+        (`cms_rating_id`, `player_sk`, `game_type`, `rating_ts`, `coin_in`, `house_edge`, `theo_amount`)
+
+
+    
+[0m19:39:01.890944 [debug] [Thread-3 (]: Writing runtime sql for node "model.nwr_erd_pipeline.dim_players"
+[0m19:39:01.894900 [debug] [Thread-3 (]: On model.nwr_erd_pipeline.dim_players: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "model.nwr_erd_pipeline.dim_players"} */
+
+  
+    
+
+    create or replace table `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+      
+    
+    cluster by player_sk
+
+    
+    OPTIONS()
+    as (
+      
+
+WITH loyalty AS (
+    SELECT
+        member_no,
+        tier,
+        dob,
+        enroll_date
+    FROM `nwr-data-platform`.`casino_platform`.`bronze_loyalty_members`
+),
+
+xref AS (
+    SELECT
+        member_no,
+        cms_player_id
+    FROM `nwr-data-platform`.`casino_platform`.`bronze_loyalty_cms_xref`
+)
+
+SELECT
+    -- Generate an MD5 string surrogate key using the dbt_utils macro
+    to_hex(md5(cast(coalesce(cast(l.member_no as string), '_dbt_utils_surrogate_key_null_') as string))) AS player_sk,
+    x.cms_player_id,
+    l.member_no,
+    l.tier,
+    l.dob,
+    l.enroll_date,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+FROM loyalty l
+LEFT JOIN xref x
+    ON l.member_no = x.member_no
+    );
+  
+[0m19:39:02.805568 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:b75adcb3-aa1f-4956-bbf6-857cf1b2ad31&page=queryresults
+[0m19:39:02.807660 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:0e62b4ea-634f-4c7b-87c4-52540e19ad21&page=queryresults
+[0m19:39:04.500981 [debug] [Thread-3 (]: SQL status: OK in 1.691 seconds
+[0m19:39:05.230305 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D545578490>]}
+[0m19:39:05.231285 [info ] [Thread-3 (]: 1 of 12 OK created sql table model dbt_erd_nwr.dim_players ..................... [[32mCREATE TABLE (500.0 rows, 27.7 KiB processed)[0m in 6.22s]
+[0m19:39:05.231285 [debug] [Thread-3 (]: Finished running node model.nwr_erd_pipeline.dim_players
+[0m19:39:05.231285 [debug] [Thread-6 (]: Began running node test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4
+[0m19:39:05.231285 [debug] [Thread-5 (]: Began running node test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398
+[0m19:39:05.231285 [info ] [Thread-6 (]: 3 of 12 START test not_null_dim_players_player_sk .............................. [RUN]
+[0m19:39:05.231285 [info ] [Thread-5 (]: 4 of 12 START test unique_dim_players_player_sk ................................ [RUN]
+[0m19:39:05.231285 [debug] [Thread-6 (]: Acquiring new bigquery connection 'test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4'
+[0m19:39:05.242479 [debug] [Thread-5 (]: Acquiring new bigquery connection 'test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398'
+[0m19:39:05.243575 [debug] [Thread-6 (]: Began compiling node test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4
+[0m19:39:05.245973 [debug] [Thread-5 (]: Began compiling node test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398
+[0m19:39:05.268480 [debug] [Thread-6 (]: Writing injected SQL for node "test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4"
+[0m19:39:05.282734 [debug] [Thread-5 (]: Writing injected SQL for node "test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398"
+[0m19:39:05.285080 [debug] [Thread-6 (]: Began executing node test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4
+[0m19:39:05.285080 [debug] [Thread-5 (]: Began executing node test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398
+[0m19:39:05.308958 [debug] [Thread-6 (]: Writing runtime sql for node "test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4"
+[0m19:39:05.317118 [debug] [Thread-5 (]: Writing runtime sql for node "test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398"
+[0m19:39:05.317118 [debug] [Thread-6 (]: On test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select player_sk
+from `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+where player_sk is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:05.317118 [debug] [Thread-5 (]: On test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select player_sk as unique_field
+  from `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+  where player_sk is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:05.317118 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m19:39:05.317118 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m19:39:05.330195 [debug] [Thread-4 (]: SQL status: OK in 2.522 seconds
+[0m19:39:05.451742 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D546925790>]}
+[0m19:39:05.453719 [info ] [Thread-4 (]: 2 of 12 OK created sql incremental model dbt_erd_nwr.fct_ratings ............... [[32mMERGE (0.0 rows, 655.3 KiB processed)[0m in 6.46s]
+[0m19:39:05.455790 [debug] [Thread-4 (]: Finished running node model.nwr_erd_pipeline.fct_ratings
+[0m19:39:05.457719 [debug] [Thread-3 (]: Began running node test.nwr_erd_pipeline.assert_valid_rating_metrics
+[0m19:39:05.458745 [debug] [Thread-4 (]: Began running node test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33
+[0m19:39:05.459723 [info ] [Thread-3 (]: 5 of 12 START test assert_valid_rating_metrics ................................. [RUN]
+[0m19:39:05.461730 [info ] [Thread-4 (]: 6 of 12 START test not_null_fct_ratings_cms_rating_id .......................... [RUN]
+[0m19:39:05.464020 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.nwr_erd_pipeline.dim_players, now test.nwr_erd_pipeline.assert_valid_rating_metrics)
+[0m19:39:05.465034 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.nwr_erd_pipeline.fct_ratings, now test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33)
+[0m19:39:05.467017 [debug] [Thread-3 (]: Began compiling node test.nwr_erd_pipeline.assert_valid_rating_metrics
+[0m19:39:05.468016 [debug] [Thread-4 (]: Began compiling node test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33
+[0m19:39:05.475041 [debug] [Thread-3 (]: Writing injected SQL for node "test.nwr_erd_pipeline.assert_valid_rating_metrics"
+[0m19:39:05.487036 [debug] [Thread-4 (]: Writing injected SQL for node "test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33"
+[0m19:39:05.489428 [debug] [Thread-3 (]: Began executing node test.nwr_erd_pipeline.assert_valid_rating_metrics
+[0m19:39:05.489428 [debug] [Thread-4 (]: Began executing node test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33
+[0m19:39:05.498716 [debug] [Thread-3 (]: Writing runtime sql for node "test.nwr_erd_pipeline.assert_valid_rating_metrics"
+[0m19:39:05.503710 [debug] [Thread-4 (]: Writing runtime sql for node "test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33"
+[0m19:39:05.505709 [debug] [Thread-3 (]: On test.nwr_erd_pipeline.assert_valid_rating_metrics: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.assert_valid_rating_metrics"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- This query replaces Query 3.
+-- If it returns any rows, the dbt test will fail and flag the bad data.
+
+SELECT
+    cms_rating_id,
+    rating_ts,
+    coin_in,
+    house_edge,
+    theo_amount
+FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+WHERE
+    coin_in < 0
+    OR house_edge < 0
+    OR house_edge > 1
+    OR theo_amount < 0
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:05.507717 [debug] [Thread-4 (]: On test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select cms_rating_id
+from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+where cms_rating_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:05.509035 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:39:05.512093 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m19:39:08.475930 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:60ee66f3-bd38-469e-88bc-38b516ced62b&page=queryresults
+[0m19:39:08.523531 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:a07409cf-70f7-4762-8ed2-5836b79ad6af&page=queryresults
+[0m19:39:08.566889 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:87896738-a85d-4de1-a4d5-91679470d628&page=queryresults
+[0m19:39:08.796717 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:68199b12-92ef-42ce-b904-d0c9257b10e0&page=queryresults
+[0m19:39:08.875912 [debug] [Thread-5 (]: SQL status: OK in 0.398 seconds
+[0m19:39:08.897473 [debug] [Thread-6 (]: SQL status: OK in 0.381 seconds
+[0m19:39:08.948653 [debug] [Thread-4 (]: SQL status: OK in 0.380 seconds
+[0m19:39:09.166582 [debug] [Thread-3 (]: SQL status: OK in 0.372 seconds
+[0m19:39:09.643170 [info ] [Thread-5 (]: 4 of 12 PASS unique_dim_players_player_sk ...................................... [[32mPASS[0m in 4.40s]
+[0m19:39:09.645165 [debug] [Thread-5 (]: Finished running node test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398
+[0m19:39:09.647180 [debug] [Thread-5 (]: Began running node test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9
+[0m19:39:09.649160 [info ] [Thread-5 (]: 7 of 12 START test not_null_fct_ratings_player_sk .............................. [RUN]
+[0m19:39:09.651632 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.unique_dim_players_player_sk.6224652398, now test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9)
+[0m19:39:09.653626 [debug] [Thread-5 (]: Began compiling node test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9
+[0m19:39:09.662997 [debug] [Thread-5 (]: Writing injected SQL for node "test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9"
+[0m19:39:09.683194 [debug] [Thread-5 (]: Began executing node test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9
+[0m19:39:09.681182 [info ] [Thread-4 (]: 6 of 12 PASS not_null_fct_ratings_cms_rating_id ................................ [[32mPASS[0m in 4.22s]
+[0m19:39:09.695002 [debug] [Thread-5 (]: Writing runtime sql for node "test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9"
+[0m19:39:09.699093 [debug] [Thread-4 (]: Finished running node test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33
+[0m19:39:09.702597 [debug] [Thread-4 (]: Began running node test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151
+[0m19:39:09.704552 [debug] [Thread-5 (]: On test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select player_sk
+from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+where player_sk is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:09.706562 [info ] [Thread-4 (]: 8 of 12 START test not_null_fct_ratings_rating_ts .............................. [RUN]
+[0m19:39:09.708580 [debug] [Thread-5 (]: Opening a new connection, currently in state closed
+[0m19:39:09.710598 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.not_null_fct_ratings_cms_rating_id.157d72ba33, now test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151)
+[0m19:39:09.782634 [debug] [Thread-4 (]: Began compiling node test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151
+[0m19:39:09.799216 [debug] [Thread-4 (]: Writing injected SQL for node "test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151"
+[0m19:39:09.805228 [debug] [Thread-4 (]: Began executing node test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151
+[0m19:39:09.817775 [debug] [Thread-4 (]: Writing runtime sql for node "test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151"
+[0m19:39:09.822994 [debug] [Thread-4 (]: On test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select rating_ts
+from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+where rating_ts is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:09.826000 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m19:39:09.951105 [info ] [Thread-3 (]: 5 of 12 PASS assert_valid_rating_metrics ....................................... [[32mPASS[0m in 4.49s]
+[0m19:39:09.953106 [debug] [Thread-3 (]: Finished running node test.nwr_erd_pipeline.assert_valid_rating_metrics
+[0m19:39:09.955105 [debug] [Thread-3 (]: Began running node test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833
+[0m19:39:09.956106 [info ] [Thread-3 (]: 9 of 12 START test relationships_fct_ratings_player_sk__player_sk__ref_dim_players_  [RUN]
+[0m19:39:09.957107 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.assert_valid_rating_metrics, now test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833)
+[0m19:39:09.959106 [debug] [Thread-3 (]: Began compiling node test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833
+[0m19:39:09.974160 [debug] [Thread-3 (]: Writing injected SQL for node "test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833"
+[0m19:39:09.976148 [debug] [Thread-3 (]: Began executing node test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833
+[0m19:39:09.985189 [debug] [Thread-3 (]: Writing runtime sql for node "test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833"
+[0m19:39:09.987117 [debug] [Thread-3 (]: On test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select player_sk as from_field
+    from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+    where player_sk is not null
+),
+
+parent as (
+    select player_sk as to_field
+    from `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:09.988110 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:39:10.485425 [info ] [Thread-6 (]: 3 of 12 PASS not_null_dim_players_player_sk .................................... [[32mPASS[0m in 5.25s]
+[0m19:39:10.487421 [debug] [Thread-6 (]: Finished running node test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4
+[0m19:39:10.489470 [debug] [Thread-6 (]: Began running node test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687
+[0m19:39:10.492789 [info ] [Thread-6 (]: 10 of 12 START test unique_fct_ratings_cms_rating_id ........................... [RUN]
+[0m19:39:10.495037 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.not_null_dim_players_player_sk.155a24dca4, now test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687)
+[0m19:39:10.499044 [debug] [Thread-6 (]: Began compiling node test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687
+[0m19:39:10.508602 [debug] [Thread-6 (]: Writing injected SQL for node "test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687"
+[0m19:39:10.513805 [debug] [Thread-6 (]: Began executing node test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687
+[0m19:39:10.523350 [debug] [Thread-6 (]: Writing runtime sql for node "test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687"
+[0m19:39:10.524062 [debug] [Thread-6 (]: On test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select cms_rating_id as unique_field
+  from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+  where cms_rating_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m19:39:10.528480 [debug] [Thread-6 (]: Opening a new connection, currently in state closed
+[0m19:39:12.748276 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:4e672221-a9b6-450f-9ac8-6f4733e38e10&page=queryresults
+[0m19:39:12.781673 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:2d14101e-b7c8-4e1a-9f29-50d1eeaef280&page=queryresults
+[0m19:39:12.953600 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:2bcbbc74-392b-4493-b7cc-021341ccd353&page=queryresults
+[0m19:39:13.155541 [debug] [Thread-5 (]: SQL status: OK in 0.406 seconds
+[0m19:39:13.202899 [debug] [Thread-4 (]: SQL status: OK in 0.418 seconds
+[0m19:39:13.540161 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:5269ae89-7286-4974-b483-0813759969b8&page=queryresults
+[0m19:39:13.557520 [debug] [Thread-3 (]: SQL status: OK in 0.601 seconds
+[0m19:39:13.900732 [info ] [Thread-5 (]: 7 of 12 PASS not_null_fct_ratings_player_sk .................................... [[32mPASS[0m in 4.25s]
+[0m19:39:13.904746 [debug] [Thread-5 (]: Finished running node test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9
+[0m19:39:13.974622 [debug] [Thread-6 (]: SQL status: OK in 0.432 seconds
+[0m19:39:13.991138 [info ] [Thread-4 (]: 8 of 12 PASS not_null_fct_ratings_rating_ts .................................... [[32mPASS[0m in 4.28s]
+[0m19:39:13.998432 [debug] [Thread-4 (]: Finished running node test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151
+[0m19:39:14.273459 [info ] [Thread-3 (]: 9 of 12 PASS relationships_fct_ratings_player_sk__player_sk__ref_dim_players_ .. [[32mPASS[0m in 4.32s]
+[0m19:39:14.275121 [debug] [Thread-3 (]: Finished running node test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833
+[0m19:39:14.645813 [info ] [Thread-6 (]: 10 of 12 PASS unique_fct_ratings_cms_rating_id ................................. [[32mPASS[0m in 4.15s]
+[0m19:39:14.645813 [debug] [Thread-6 (]: Finished running node test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687
+[0m19:39:14.645813 [debug] [Thread-5 (]: Began running node model.nwr_erd_pipeline.fct_daily_player_kpi
+[0m19:39:14.645813 [info ] [Thread-5 (]: 11 of 12 START sql table model dbt_erd_nwr.fct_daily_player_kpi ................ [RUN]
+[0m19:39:14.666386 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.not_null_fct_ratings_player_sk.dcfeacdfe9, now model.nwr_erd_pipeline.fct_daily_player_kpi)
+[0m19:39:14.668402 [debug] [Thread-5 (]: Began compiling node model.nwr_erd_pipeline.fct_daily_player_kpi
+[0m19:39:14.679438 [debug] [Thread-5 (]: Writing injected SQL for node "model.nwr_erd_pipeline.fct_daily_player_kpi"
+[0m19:39:14.684663 [debug] [Thread-5 (]: Began executing node model.nwr_erd_pipeline.fct_daily_player_kpi
+[0m19:39:14.690784 [debug] [Thread-5 (]: Opening a new connection, currently in state closed
+[0m19:39:16.998937 [debug] [Thread-5 (]: Writing runtime sql for node "model.nwr_erd_pipeline.fct_daily_player_kpi"
+[0m19:39:17.003938 [debug] [Thread-5 (]: On model.nwr_erd_pipeline.fct_daily_player_kpi: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "model.nwr_erd_pipeline.fct_daily_player_kpi"} */
+
+  
+    
+
+    create or replace table `nwr-data-platform`.`dbt_erd_nwr`.`fct_daily_player_kpi`
+      
+    partition by date_day
+    cluster by player_sk
+
+    
+    OPTIONS()
+    as (
+      
+
+WITH daily_aggregates AS (
+    SELECT
+        EXTRACT(DATE FROM rating_ts) AS date_day,
+        player_sk,
+        SUM(coin_in) AS daily_coin_in,
+        SUM(theo_amount) AS daily_theo
+    FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+    WHERE player_sk IS NOT NULL
+    GROUP BY 1, 2
+),
+
+rolling_metrics AS (
+    SELECT
+        date_day,
+        player_sk,
+        daily_coin_in,
+        daily_theo,
+        -- BigQuery optimized rolling 30-day sum using UNIX_DATE
+        SUM(daily_theo) OVER (
+            PARTITION BY player_sk
+            ORDER BY UNIX_DATE(date_day)
+            RANGE BETWEEN 29 PRECEDING AND CURRENT ROW
+        ) AS rolling_30d_theo
+    FROM daily_aggregates
+)
+
+SELECT
+    date_day,
+    player_sk,
+    daily_coin_in,
+    daily_theo,
+    rolling_30d_theo,
+    -- Player is considered "Active" if they generated theo in the last 30 days
+    IF(rolling_30d_theo > 0, TRUE, FALSE) AS is_active_flag
+FROM rolling_metrics
+    );
+  
+[0m19:39:17.710244 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:d28c6451-99ed-4141-b29e-4a832e1abc5d&page=queryresults
+[0m19:39:20.749633 [debug] [Thread-5 (]: SQL status: OK in 3.035 seconds
+[0m19:39:21.135409 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D530EDD190>]}
+[0m19:39:21.139411 [info ] [Thread-5 (]: 11 of 12 OK created sql table model dbt_erd_nwr.fct_daily_player_kpi ........... [[32mCREATE TABLE (9.1k rows, 566.4 KiB processed)[0m in 6.47s]
+[0m19:39:21.142412 [debug] [Thread-5 (]: Finished running node model.nwr_erd_pipeline.fct_daily_player_kpi
+[0m19:39:21.147405 [debug] [Thread-3 (]: Began running node model.nwr_erd_pipeline.mart_exec_daily
+[0m19:39:21.150934 [info ] [Thread-3 (]: 12 of 12 START sql table model dbt_erd_nwr.mart_exec_daily ..................... [RUN]
+[0m19:39:21.153933 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.nwr_erd_pipeline.relationships_fct_ratings_player_sk__player_sk__ref_dim_players_.c5d07be833, now model.nwr_erd_pipeline.mart_exec_daily)
+[0m19:39:21.157933 [debug] [Thread-3 (]: Began compiling node model.nwr_erd_pipeline.mart_exec_daily
+[0m19:39:21.170449 [debug] [Thread-3 (]: Writing injected SQL for node "model.nwr_erd_pipeline.mart_exec_daily"
+[0m19:39:21.175710 [debug] [Thread-3 (]: Began executing node model.nwr_erd_pipeline.mart_exec_daily
+[0m19:39:21.185313 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:39:23.697459 [debug] [Thread-3 (]: Writing runtime sql for node "model.nwr_erd_pipeline.mart_exec_daily"
+[0m19:39:23.701721 [debug] [Thread-3 (]: On model.nwr_erd_pipeline.mart_exec_daily: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "nwr_erd_pipeline", "target_name": "dev", "node_id": "model.nwr_erd_pipeline.mart_exec_daily"} */
+
+  
+    
+
+    create or replace table `nwr-data-platform`.`dbt_erd_nwr`.`mart_exec_daily`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      WITH daily_kpi AS (
+    SELECT * FROM `nwr-data-platform`.`dbt_erd_nwr`.`fct_daily_player_kpi`
+),
+
+daily_summary AS (
+    SELECT
+        date_day AS run_date,
+        SUM(daily_theo) AS kpi_theo_today,
+        COUNT(DISTINCT IF(is_active_flag, player_sk, NULL)) AS kpi_active_players
+    FROM daily_kpi
+    GROUP BY 1
+)
+
+SELECT
+    run_date,
+    kpi_theo_today,
+    -- Month-to-date calculation using window functions
+    SUM(kpi_theo_today) OVER (
+        PARTITION BY EXTRACT(YEAR FROM run_date), EXTRACT(MONTH FROM run_date)
+        ORDER BY run_date
+    ) AS kpi_theo_mtd,
+    kpi_active_players
+FROM daily_summary
+    );
+  
+[0m19:39:25.079592 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=nwr-data-platform&j=bq:US:f248fc7d-1582-43cc-8826-928b9597156c&page=queryresults
+[0m19:39:26.754148 [debug] [Thread-3 (]: SQL status: OK in 1.671 seconds
+[0m19:39:27.754007 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0fdbbb23-4037-4d47-9093-824403e48962', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D54521A1D0>]}
+[0m19:39:27.757086 [info ] [Thread-3 (]: 12 of 12 OK created sql table model dbt_erd_nwr.mart_exec_daily ................ [[32mCREATE TABLE (92.0 rows, 450.9 KiB processed)[0m in 6.60s]
+[0m19:39:27.761008 [debug] [Thread-3 (]: Finished running node model.nwr_erd_pipeline.mart_exec_daily
+[0m19:39:27.764439 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:39:27.867162 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:39:27.868182 [debug] [MainThread]: Connection 'list_nwr-data-platform' was properly closed.
+[0m19:39:27.870173 [debug] [MainThread]: Connection 'list_nwr-data-platform_dbt_erd_nwr' was properly closed.
+[0m19:39:27.871176 [debug] [MainThread]: Connection 'model.nwr_erd_pipeline.mart_exec_daily' was properly closed.
+[0m19:39:27.873173 [debug] [MainThread]: Connection 'test.nwr_erd_pipeline.not_null_fct_ratings_rating_ts.cff2153151' was properly closed.
+[0m19:39:27.874174 [debug] [MainThread]: Connection 'test.nwr_erd_pipeline.unique_fct_ratings_cms_rating_id.10a3358687' was properly closed.
+[0m19:39:27.876175 [debug] [MainThread]: Connection 'model.nwr_erd_pipeline.fct_daily_player_kpi' was properly closed.
+[0m19:39:27.878174 [info ] [MainThread]: 
+[0m19:39:27.880172 [info ] [MainThread]: Finished running 1 incremental model, 3 table models, 8 data tests in 0 hours 0 minutes and 32.71 seconds (32.71s).
+[0m19:39:27.891074 [debug] [MainThread]: Command end result
+[0m19:39:28.106052 [debug] [MainThread]: Wrote artifact WritableManifest to D:\dev\nwr_erd_analytics\nwr_erd_pipeline\target\manifest.json
+[0m19:39:28.119072 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\dev\nwr_erd_analytics\nwr_erd_pipeline\target\semantic_manifest.json
+[0m19:39:28.152857 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\dev\nwr_erd_analytics\nwr_erd_pipeline\target\run_results.json
+[0m19:39:28.155855 [info ] [MainThread]: 
+[0m19:39:28.158859 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m19:39:28.163326 [info ] [MainThread]: 
+[0m19:39:28.168273 [info ] [MainThread]: Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=12
+[0m19:39:28.172269 [debug] [MainThread]: Command `dbt build` succeeded at 19:39:28.172269 after 39.36 seconds
+[0m19:39:28.174270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D52FC5B890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5290DA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D530E6A410>]}
+[0m19:39:28.178337 [debug] [MainThread]: Flushing usage events
+[0m19:39:30.082158 [debug] [MainThread]: An error was encountered while trying to flush usage events
