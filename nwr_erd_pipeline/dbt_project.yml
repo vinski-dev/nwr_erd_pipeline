@@ -6,7 +6,7 @@ flags:
     - MissingArgumentsPropertyInGenericTestDeprecation
 
 # This tells dbt to look for the "casino_platform" block in your profiles.yml
-profile: "casino_platform"
+profile: "nwr_erd_pipeline"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]

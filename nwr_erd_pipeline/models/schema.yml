@@ -27,7 +27,8 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_players')
-              field: player_sk
+              arguments:
+                to: ref('dim_players')
+                field: player_sk
       - name: theo_amount
         description: "Theoretical win calculated locally as coin_in * house_edge."
