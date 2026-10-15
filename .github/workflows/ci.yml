@@ -27,36 +27,26 @@ jobs:
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
-          # 1. Determine target dataset based on branch
           if [ "${{ github.ref_name }}" == "main" ]; then
-            TARGET_DATASET="dbt_erd_nwr_prod"
+              TARGET_DATASET="dbt_erd_nwr_prod"
           else
-            TARGET_DATASET="dbt_erd_nwr_staging"
+              TARGET_DATASET="dbt_erd_nwr_staging"
           fi
           echo "Building into dataset: $TARGET_DATASET"
 
-          # 2. Write the secret to a temporary file
-          mkdir -p credentials
-          echo "$GCP_SA_KEY" > credentials/gcp_key.json
-
-          # 3. Dynamically generate profiles.yml
           mkdir -p ~/.dbt
+          # Save the key file to an absolute, unmoving path
+          echo "$GCP_SA_KEY" > ~/.dbt/gcp_key.json
+
           cat <<EOF > ~/.dbt/profiles.yml
           nwr_erd_pipeline:
-            target: ci
-            outputs:
+              target: ci
+              outputs:
               ci:
-                type: bigquery
-                method: service-account
-                project: nwr-data-platform
-                dataset: $TARGET_DATASET
-                threads: 4
-                keyfile: credentials/gcp_key.json
+                  type: bigquery
+                  method: service-account
+                  project: nwr-data-platform
+                  dataset: $TARGET_DATASET
+                  threads: 4
+                  keyfile: /home/runner/.dbt/gcp_key.json
           EOF
-
-      - name: Run dbt Build
-        run: |
-          # Navigate into the subfolder where dbt_project.yml lives
-          cd nwr_erd_pipeline
-          dbt deps --profiles-dir ~/.dbt
-          dbt build --target ci --profiles-dir ~/.dbt
