@@ -15,7 +15,7 @@ SELECT
     sk_player_id,
     coin_in,
     theo_amount
-FROM `nwr-data-platform`.`silver`.`fct_ratings`
+FROM `nwr-data-platform`.`dbt_erd_nwr_silver`.`fct_ratings`
 WHERE coin_in < 0 OR theo_amount < 0
   
   

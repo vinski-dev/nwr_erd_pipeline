@@ -1,6 +1,6 @@
 
 
-  create or replace view `nwr-data-platform`.`silver`.`dim_players`
+  create or replace view `nwr-data-platform`.`dbt_erd_nwr_silver`.`dim_players`
   OPTIONS()
   as 
 

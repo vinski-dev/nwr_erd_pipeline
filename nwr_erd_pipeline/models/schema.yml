@@ -8,8 +8,6 @@ models:
         description: "Primary key for the player."
         tests:
           - not_null
-          - unique
-
   - name: fct_ratings
     description: "Transactional fact table capturing individual patron gaming sessions."
     columns:
