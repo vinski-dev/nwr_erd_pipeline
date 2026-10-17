@@ -6,3 +6,4 @@ dbt-bigquery
 faker
 pandas-gbq
 db-dtypes
+streamlit
