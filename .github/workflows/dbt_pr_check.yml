@@ -11,6 +11,11 @@ jobs:
     name: Run dbt build --empty
     runs-on: ubuntu-latest
 
+    # This tells GitHub Actions to run all commands inside your dbt project folder
+    defaults:
+      run:
+        working-directory: ./nwr_erd_pipeline
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -35,5 +40,5 @@ jobs:
         # The --empty flag ensures it only validates schema/compilation without processing gigabytes of data
         run: dbt build --empty
         env:
-          # Tell dbt where to find your profiles.yml (usually in the project root during CI)
+          # Tell dbt where to find your profiles.yml
           DBT_PROFILES_DIR: .
