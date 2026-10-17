@@ -1,0 +1,39 @@
+version: 2
+
+unit_tests:
+  - name: test_campaign_performance_mapping
+    model: mart_campaign_performance
+    given:
+      - input: ref('fct_campaign_redemption')
+        rows:
+          # ADD campaign_id HERE so the model has data to pull
+          - { campaign_id: 'camp_1', sk_campaign_id: 'camp_1_hash', redemption_date: '2026-10-01 10:00:00', offer_amount: 100.0 }
+      - input: ref('mart_player_daily_summary')
+        rows:
+          - { player_sk: 'p_1', play_date: '2026-10-01' }
+      - input: ref('dim_players')
+        rows:
+          - { player_sk: 'p_1' }
+    expect:
+      rows:
+        - { campaign_id: 'camp_1', offer_amount: 100.0 }
+models:
+  - name: mart_campaign_performance
+    description: "Campaign performance summary combining redemptions and daily player metrics."
+    columns:
+      - name: campaign_id
+        description: "Surrogate key for the campaign."
+        tests:
+          - not_null
+      - name: redemption_date
+        description: "Timestamp when the offer was redeemed."
+        tests:
+          - not_null
+      - name: player_sk
+        description: "Surrogate key for the player."
+        tests:
+          - not_null
+      - name: offer_amount
+        description: "Total offer amount redeemed."
+        tests:
+          - not_null

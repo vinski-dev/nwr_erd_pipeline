@@ -1,13 +1,16 @@
 
-{% snapshot dim_players_snapshot %}
+{% snapshot snp_players %}
 
-{{ config(
-    target_schema='silver',
-    unique_key='sk_player_id',
-    strategy='check',
-    check_cols=['tier', 'last_name', 'first_name']
-) }}
+{{
+    config(
+        target_database='nwr-data-platform',
+        target_schema='snapshots',
+        unique_key='player_natural_key',
+        strategy='check',
+        check_cols=['email', 'first_name', 'last_name', 'loyalty_tier']
+    )
+}}
 
-SELECT * FROM {{ ref('int_player_identity_map') }}
+select * from {{ ref('int_player_identity_map') }}
 
 {% endsnapshot %}

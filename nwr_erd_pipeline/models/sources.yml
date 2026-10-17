@@ -4,8 +4,13 @@ sources:
   - name: bronze
     database: nwr-data-platform
     schema: bronze
+    description: "Raw ingestion layer populated directly via Python API load scripts."
     tables:
       - name: cms_players
+        description: "Raw casino player demographic profiles."
       - name: loyalty_members
+        description: "Raw hospitality and loyalty program member data."
       - name: cms_ratings
+        description: "Raw gaming telemetry and coin-in ratings data."
       - name: promo_redemptions
+        description: "Raw promotional campaign redemption logs."

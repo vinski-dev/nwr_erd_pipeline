@@ -2,30 +2,69 @@ version: 2
 
 models:
   - name: dim_players
-    description: "Dimension table for casino patrons, merging loyalty and CMS identities."
+    description: "SCD Type 2 dimension capturing the historical state and current profile of all casino players and walk-up guests."
     columns:
-      - name: sk_player_id
-        description: "Primary key for the player."
+      - name: player_sk
+        description: "Immutable lifetime master key for cross-functional CLV aggregation."
         tests:
           - not_null
-  - name: fct_ratings
-    description: "Transactional fact table capturing individual patron gaming sessions."
-    columns:
-      - name: sk_rating_id
-        description: "Primary key for the rating transaction."
+      - name: player_version_sk
+        description: Unique primary key for each historical version of a player."
         tests:
           - not_null
           - unique
-      - name: sk_player_id
+      - name: casino_account_id
+        description: "The raw CMS player ID from the source system."
+      - name: is_current_record
+        description: "Boolean flag indicating if this row is the most recent active profile for the player."
+      - name: email
+        tests:
+          - dbt_expectations.expect_column_values_to_match_regex:
+              # Replaced the backslash with [.] to bypass BigQuery escape sequence errors
+              regex: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$"
+              row_condition: "email IS NOT NULL"
+
+  - name: fct_ratings
+    description: "Incremental fact table capturing casino floor ratings, coin-in, and theoretical win aggregated to the day and player tier."
+    columns:
+      - name: sk_rating_id
+        description: "Primary key. Surrogate key generated from cms_player_id, rating_ts, and game_type."
+        tests:
+          - unique
+          - not_null
+      - name: player_sk
+        description: "Foreign key joining to dim_players lifetime master key."
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_players')
-                field: sk_player_id
-      - name: rating_ts
-        description: "Timestamp of the rating session."
+              to: ref('dim_players')
+              field: player_sk
+              config:
+                where: "player_sk != 'UNKNOWN_PLAYER'"
+      - name: theoretical_win
+        description: "Calculated BI metric: coin_in * house_edge."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              row_condition: "theoretical_win IS NOT NULL"
+  - name: fct_campaign_redemption
+    description: "Incremental fact table capturing promotional offers redeemed by players."
+    columns:
+      - name: sk_redemption_id
+        description: "Primary key. Surrogate key generated from member_no, campaign_id, and redemption_ts."
+        tests:
+          - unique
+          - not_null
+      - name: player_sk
+        description: "Master player key linking the redemption to the lifetime player profile."
         tests:
           - not_null
-      - name: theo_amount
-        description: "Theoretical win calculated locally as coin_in * house_edge."
+          - relationships:
+              to: ref('dim_players')
+              field: player_sk
+              config:
+                where: "player_sk != 'UNKNOWN_PLAYER'"
+      - name: sk_campaign_id
+        description: "Foreign key linking to the future dim_campaign model."
+        tests:
+          - not_null

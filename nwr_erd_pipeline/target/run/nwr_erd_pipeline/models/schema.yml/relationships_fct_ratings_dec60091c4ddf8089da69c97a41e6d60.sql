@@ -13,13 +13,13 @@
 
 with child as (
     select player_sk as from_field
-    from `nwr-data-platform`.`dbt_erd_nwr`.`fct_ratings`
+    from (select * from `nwr-data-platform`.`dbt_erd_nwr_silver`.`fct_ratings` where player_sk != 'UNKNOWN_PLAYER') dbt_subquery
     where player_sk is not null
 ),
 
 parent as (
     select player_sk as to_field
-    from `nwr-data-platform`.`dbt_erd_nwr`.`dim_players`
+    from `nwr-data-platform`.`dbt_erd_nwr_silver`.`dim_players`
 )
 
 select

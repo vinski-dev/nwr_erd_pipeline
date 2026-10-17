@@ -6,6 +6,7 @@ flags:
     - MissingArgumentsPropertyInGenericTestDeprecation
 
 # This tells dbt to look for the "nwr_erd_pipeline" block in your profiles.yml
+  require_generic_test_arguments_property: true
 profile: "nwr_erd_pipeline"
 
 model-paths: ["models"]
