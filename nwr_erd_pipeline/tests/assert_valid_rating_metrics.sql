@@ -3,8 +3,8 @@
 
 SELECT
     sk_rating_id, -- Used to be cms_rating_id
-    sk_player_id,
+    player_sk,
     coin_in,
-    theo_amount
+    theoretical_win
 FROM {{ ref('fct_ratings') }}
-WHERE coin_in < 0 OR theo_amount < 0
+WHERE coin_in < 0 OR theoretical_win < 0

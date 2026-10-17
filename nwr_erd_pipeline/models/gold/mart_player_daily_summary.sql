@@ -1,40 +1,47 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='table',
+    partition_by={
+      "field": "play_date",
+      "data_type": "date",
+      "granularity": "day"
+    },
+    cluster_by=['player_sk']
+) }}
 
-WITH daily_play AS (
+WITH daily_aggregate AS (
     SELECT
-        sk_player_id,
-        CAST(rating_ts AS DATE) AS date_day,
-        SUM(coin_in) AS daily_coin_in,
-        SUM(theo_amount) AS daily_theo
+        player_sk,
+        CAST(rating_ts AS DATE) AS play_date,
+        SUM(coin_in) AS total_coin_in,
+        SUM(theoretical_win) AS total_theoretical_win
     FROM {{ ref('fct_ratings') }}
-    GROUP BY 1, 2
+    GROUP BY
+        player_sk,
+        CAST(rating_ts AS DATE)
 ),
 
-lagged_play AS (
+player_dim AS (
     SELECT
-        date_day,
-        sk_player_id,
-        daily_coin_in,
-        daily_theo,
-        -- Window function to find the previous date of play
-        LAG(date_day)
-            OVER (PARTITION BY sk_player_id ORDER BY date_day)
-            AS previous_play_date
-    FROM daily_play
+        player_sk,
+        first_name,
+        last_name,
+        loyalty_tier
+    FROM {{ ref('dim_players') }}
+    -- Safely ensure 1 row per player_sk in case dim_players holds multiple rows
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY player_sk
+        ORDER BY loyalty_tier DESC
+    ) = 1
 )
 
 SELECT
-    p.date_day,
-    p.sk_player_id,
-    d.tier,
-    p.daily_coin_in,
-    p.daily_theo,
-    -- Calculate days since last play for activity tracking
-    DATE_DIFF(p.date_day, p.previous_play_date, DAY) AS days_since_last_play,
-    -- Boolean flag for quick BI filtering on active players
-    CASE
-        WHEN DATE_DIFF(CURRENT_DATE(), p.date_day, DAY) <= 30 THEN TRUE ELSE
-            FALSE
-    END AS is_active_30d
-FROM lagged_play p
-JOIN {{ ref('dim_players') }} d ON p.sk_player_id = d.sk_player_id
+    a.player_sk,
+    a.play_date,
+    d.first_name,
+    d.last_name,
+    d.loyalty_tier,
+    a.total_coin_in,
+    a.total_theoretical_win
+FROM daily_aggregate a
+LEFT JOIN player_dim d
+    ON a.player_sk = d.player_sk

@@ -1,5 +1,5 @@
 select
-    sk_player_id,
+    player_sk,
     valid_from,
     valid_to
 from {{ ref('dim_players') }}

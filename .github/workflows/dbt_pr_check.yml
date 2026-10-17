@@ -1,0 +1,39 @@
+name: dbt Schema Validation
+
+# Run this workflow automatically whenever a Pull Request is opened against the main branch
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dbt-dry-run:
+    name: Run dbt build --empty
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dbt for BigQuery
+        run: pip install dbt-bigquery
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Install dbt Dependencies
+        run: dbt deps
+
+      - name: Run Schema Validation
+        # The --empty flag ensures it only validates schema/compilation without processing gigabytes of data
+        run: dbt build --empty
+        env:
+          # Tell dbt where to find your profiles.yml (usually in the project root during CI)
+          DBT_PROFILES_DIR: .
