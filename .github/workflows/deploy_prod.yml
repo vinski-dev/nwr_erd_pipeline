@@ -1,27 +1,25 @@
-name: dbt Schema Validation
+name: dbt Production Deployment
 
-# Run this workflow automatically whenever a Pull Request is opened against the main branch
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 jobs:
-  dbt-dry-run:
-    name: Run dbt build --empty
+  dbt-deploy:
+    name: Run dbt build in Production
     runs-on: ubuntu-latest
 
-    # This tells GitHub Actions to run all commands inside your dbt project folder
     defaults:
       run:
         working-directory: ./nwr_erd_pipeline
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -29,21 +27,21 @@ jobs:
         run: pip install dbt-bigquery
 
       - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v1
+        uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Create profiles.yml
+      - name: Create Production profiles.yml
         run: |
           cat <<EOF > profiles.yml
           nwr_erd_pipeline:
-            target: ci
+            target: prod
             outputs:
-              ci:
+              prod:
                 type: bigquery
                 method: oauth
                 project: nwr-data-platform
-                dataset: dbt_erd_nwr_ci
+                dataset: dbt_erd_nwr_prod
                 location: US
                 threads: 4
           EOF
@@ -51,9 +49,7 @@ jobs:
       - name: Install dbt Dependencies
         run: dbt deps
 
-      - name: Run Schema Validation
-        # The --empty flag ensures it only validates schema/compilation without processing gigabytes of data
-        run: dbt build --empty
+      - name: Deploy to Production
+        run: dbt build
         env:
-          # Tell dbt where to find your profiles.yml
           DBT_PROFILES_DIR: .
