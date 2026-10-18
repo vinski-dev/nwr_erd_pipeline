@@ -11,7 +11,6 @@ PROJECT_ROOT = os.path.abspath(os.path.join(DAG_DIR, "..", ".."))
 INGEST_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "scripts", "erd_data_generator.py")
 DBT_PROJECT_DIR = os.path.join(PROJECT_ROOT, "nwr_erd_pipeline")
 EXTRACT_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "scripts", "extract_campaign_data.py")
-# Add the path to your new profiler script
 PROFILER_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "scripts", "profile_table.py")
 
 default_args = {
@@ -38,6 +37,12 @@ with DAG(
         bash_command=f'python "{INGEST_SCRIPT_PATH}"',
     )
 
+    # 1. The Health Check for Raw Data
+    profile_raw_data = BashOperator(
+        task_id="profile_raw_data",
+        bash_command=f'python "{PROFILER_SCRIPT_PATH}"',
+    )
+
     dbt_build = BashOperator(
         task_id="dbt_build_models",
         bash_command=f'cd "{DBT_PROJECT_DIR}" && dbt build --full-refresh',
@@ -48,12 +53,12 @@ with DAG(
         bash_command=f'python "{EXTRACT_SCRIPT_PATH}"',
     )
 
-    # The new Observability task
-    run_pipeline_health_profiler = BashOperator(
-        task_id="run_pipeline_health_profiler",
+    # 2. The Health Check for Transformed Data
+    profile_transformed_data = BashOperator(
+        task_id="profile_transformed_data",
         bash_command=f'python "{PROFILER_SCRIPT_PATH}"',
     )
 
     # Pipeline Orchestration Dependencies
     # Bronze -> Silver/Gold -> [Extract, Profile]
-    ingest_raw_data >> dbt_build >> [extract_dashboard_data, run_pipeline_health_profiler]
+    (ingest_raw_data >> profile_raw_data >> dbt_build >> [extract_dashboard_data, profile_transformed_data])
