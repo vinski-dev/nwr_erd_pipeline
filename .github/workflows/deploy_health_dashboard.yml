@@ -31,6 +31,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
+          gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin ${{ env.REGION }}-docker.pkg.dev
           IMAGE_PATH="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/dashboards/${{ env.SERVICE_NAME }}:${{ github.sha }}"
           docker build -t $IMAGE_PATH .
           docker push $IMAGE_PATH
