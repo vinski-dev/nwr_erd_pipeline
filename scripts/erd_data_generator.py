@@ -15,16 +15,16 @@ def generate_and_load_bronze_data(dataset_id="bronze", num_profiles=1000, num_ra
 
     print("Generating synthetic data...")
 
-    # 1. Generate Base PII Profiles (The "True" Humans) - including email
+    # 1. Generate Base PII Profiles
     base_profiles = pd.DataFrame(
         [
             {
                 "first_name": fake.first_name(),
                 "last_name": fake.last_name(),
-                "email": fake.email(),
+                "email": f"usr_{i}_{fake.email()}",  # <-- The patch: injected 'usr_{i}_'
                 "dob": fake.date_of_birth(minimum_age=21, maximum_age=80),
             }
-            for _ in range(num_profiles)
+            for i in range(num_profiles)  # <-- Uses the index 'i' from this loop
         ]
     )
 
