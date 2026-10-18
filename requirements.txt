@@ -7,3 +7,4 @@ faker
 pandas-gbq
 db-dtypes
 streamlit
+tabulate

@@ -1,0 +1,43 @@
+name: Deploy Data Observability Dashboard
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/streamlit_health_dashboard.py"
+      - "sql/bq_data_profiler_01.sql"
+      - "Dockerfile"
+
+env:
+  PROJECT_ID: your-gcp-project-id
+  SERVICE_NAME: nwr-health-ui
+  REGION: us-central1
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+
+      - name: Build and Push Docker Image
+        run: |
+          IMAGE_PATH="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/dashboards/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          docker build -t $IMAGE_PATH .
+          docker push $IMAGE_PATH
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/dashboards/${{ env.SERVICE_NAME }}:${{ github.sha }}
