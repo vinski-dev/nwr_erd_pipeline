@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "scripts/streamlit_health_dashboard.py"
-      - "sql/bq_data_profiler_01.sql"
-      - "Dockerfile"
+    # paths:
+    #   - "scripts/streamlit_health_dashboard.py"
+    #   - "sql/bq_data_profiler_01.sql"
+    #   - "Dockerfile"
 
 env:
   PROJECT_ID: nwr-data-platform
