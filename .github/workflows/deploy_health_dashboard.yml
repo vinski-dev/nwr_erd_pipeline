@@ -11,8 +11,8 @@ on:
 
 env:
   PROJECT_ID: nwr-data-platform
-  SERVICE_NAME: nwr-health-ui
   REGION: us-central1
+  SERVICE_NAME: nwr-health-ui
 
 jobs:
   build-and-deploy:
