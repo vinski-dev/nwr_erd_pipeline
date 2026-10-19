@@ -53,7 +53,7 @@ DO
 END FOR;
 
 -- 5. Return the final consolidated results
-SSELECT
+SELECT
     table_name,
     column_name,
     data_type,
